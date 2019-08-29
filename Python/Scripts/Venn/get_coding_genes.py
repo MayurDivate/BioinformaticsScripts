@@ -1,7 +1,7 @@
 import os
 
 cg = 'coding_genes.txt'
-coding_genes =  [g.rstrip() for g in open(cg,'r')]
+coding_genes = [g.rstrip() for g in open(cg,'r')]
 coding_genes = coding_genes[1:]
 
 root_dir = '/Users/mayurdivate/QUT/Work/Projects/All_Gene_list/Genes/0_All_genes/'
