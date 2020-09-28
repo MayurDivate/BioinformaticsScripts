@@ -1,11 +1,20 @@
 library('ComplexHeatmap')
 library(circlize)
 
-setwd('/Users/mayurdivate/QUT/data_verify')
+#setwd('')
 
+# infile format
+# genes x samples matrix
 infile = 'BRAIN_hm.csv'
+
+# gx file format 
+# label for each sample on new line
 gx = 'BRAIN_hm_csep.csv'
+
+
 outfile = 'BRAIN_hm.jpeg'
+
+
 
 
 df = read.csv(infile)
