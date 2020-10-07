@@ -7,3 +7,18 @@ You can also suggest me the programs that you would like to see here.</br>
 Share and reuse !
 
 </p>
+
+# R 
+Heatmap
+violin plot
+TSNE / PCA clustering plot
+Bar chart
+
+
+# AWK 
+Trim fastq
+
+
+
+
+
