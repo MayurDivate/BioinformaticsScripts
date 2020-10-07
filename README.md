@@ -9,14 +9,14 @@ Share and reuse !
 </p>
 
 # R 
-Heatmap
-violin plot
-TSNE / PCA clustering plot
-Bar chart
+Heatmap </br>
+violin plot </br>
+TSNE / PCA clustering plot </br>
+Bar chart </br>
 
 
 # AWK 
-Trim fastq
+Trim fastq </br>
 
 
 
