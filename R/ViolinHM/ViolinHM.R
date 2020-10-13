@@ -6,8 +6,8 @@ plotViolin <- function(df, outfile){
   p = p + coord_flip()
   p = p + facet_grid(~label)
   p = p + theme(strip.text.x = element_text(hjust = 0.5, size = 20, face='bold'))
-  p = p + theme(axis.text.y = element_text(size = 20))
-  jpeg(outfile, height = 5000, width = 8000, quality = 1000, res = 200)
+  p = p + theme(axis.text.y = element_text(size = 5))
+  jpeg(outfile, height = 6000, width = 8000, quality = 1000, res = 200)
   print(p)
   dev.off()
 }
@@ -17,7 +17,7 @@ plotViolin <- function(df, outfile){
 
 # input file 
 # label gene exp
-fx = 'Vhm_107'
+fx = 'F5M2N2'
 fileX= paste0(fx, '.csv')
 gx = paste0(fx,'_gs.csv')
 outfileX = paste0(fx, '.jpeg')
@@ -26,6 +26,8 @@ df = read.csv(fileX,stringsAsFactors = FALSE)
 colnames(df) = c('label', 'gene', 'exp')
 
 glevels = read.csv(gx)
+glevels
+
 df[,2] = factor(df[,2], levels = rev(glevels[,1]))
 
 plotViolin(df, outfileX)
