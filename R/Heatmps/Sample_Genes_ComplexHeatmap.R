@@ -1,11 +1,12 @@
 library(ComplexHeatmap)
 library(circlize)
 
-#setwd('')
+setwd('/Users/n10337547/GitHub/BioinformaticsScripts/R/Heatmps')
 
 # infile format
 # genes (rows) x samples (cols) matrix
-infile = 'input_file.csv'
+#infile = 'input_file.csv'
+infile='/Users/n10337547/Downloads/test.csv'
 
 # color key name 
 ck = 'FPKM'
@@ -15,38 +16,37 @@ ck = 'FPKM'
 outfile = 'output_hm.jpeg'
 
 # read data
-df = read.csv(infile)
+df = read.csv(infile, stringsAsFactors = F)
 
-head(df[,c(1:5)])
+mat = df[,c(2:ncol(df))]
+mat = as.matrix(mat)
+rownames(mat) = df[,1]
 
-mat = as.matrix(t(df))
-
-max(df)
-
-#hcols = circlize::colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
+hcols = circlize::colorRamp2(c(0, 10, 20), c("blue", "white", "red"))
 #hcols
 
 jpeg(outfile, width = 8000, height = 5000, quality = 1000, res = 300)
 
 hm = Heatmap(mat,
              # clustering
-	     # T: Yes and F: NO 
+	           # T: Yes and F: NO 
              cluster_rows = T,
              cluster_columns = T,
              # clustering method : "pearson", "spearman" and "kendall"
-	     clustering_distance_columns = "pearson"
+	           clustering_distance_columns = "pearson",
 
              # cancer seperator
              # column_split = # for grouping replicates 
              # row_split = # for grouping genes 
              
              # sample names
-             column_names_gp = gpar(fontsize = 20, fontface = "bold"),
-             #column_title_rot = 90,
+             column_names_gp = gpar(fontsize = 15, fontface = "bold"),
+             column_names_rot = 0,
+             column_names_side = 'top',
              
              # gene names 
-             #row_names_rot = 45,
-             row_names_gp = gpar(fontsize = 2, fontface = "bold"),
+             row_names_side = 'right',
+             row_names_gp = gpar(fontsize = 10),
              
              #Color key
              name = ck,
