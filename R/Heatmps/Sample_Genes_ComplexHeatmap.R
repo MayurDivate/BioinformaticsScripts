@@ -4,21 +4,18 @@ library(circlize)
 #setwd('')
 
 # infile format
-# genes x samples matrix
-infile = 'BRAIN_hm.csv'
+# genes (rows) x samples (cols) matrix
+infile = 'input_file.csv'
 
-# gx file format 
-# label for each sample on new line
-gx = 'BRAIN_hm_csep.csv'
-
-
-outfile = 'BRAIN_hm.jpeg'
+# color key name 
+ck = 'FPKM'
 
 
+#output file
+outfile = 'output_hm.jpeg'
 
-
+# read data
 df = read.csv(infile)
-csep = read.csv(gx)
 
 head(df[,c(1:5)])
 
@@ -26,29 +23,24 @@ mat = as.matrix(t(df))
 
 max(df)
 
-# colors
-hcols=colorRampPalette(c("gray", "orange"))(3)
-hcols2=colorRampPalette(c('orange', 'red'))(10)
-hcols = c(hcols[0:2], hcols2)
-hcols
-
-
-# restrict colors within a range
-#hcols = circlize::colorRamp2(c(0, 2, 4), c("gray", "orange", "red"))
+#hcols = circlize::colorRamp2(c(-2, 0, 2), c("blue", "white", "red"))
 #hcols
 
 jpeg(outfile, width = 8000, height = 5000, quality = 1000, res = 300)
 
 hm = Heatmap(mat,
-             # clustering 
+             # clustering
+	     # T: Yes and F: NO 
              cluster_rows = T,
              cluster_columns = T,
-             
+             # clustering method : "pearson", "spearman" and "kendall"
+	     clustering_distance_columns = "pearson"
+
              # cancer seperator
-             column_split = csep['label'],
-             #row_split = 
+             # column_split = # for grouping replicates 
+             # row_split = # for grouping genes 
              
-             # Cancer names
+             # sample names
              column_names_gp = gpar(fontsize = 20, fontface = "bold"),
              #column_title_rot = 90,
              
@@ -57,9 +49,8 @@ hm = Heatmap(mat,
              row_names_gp = gpar(fontsize = 2, fontface = "bold"),
              
              #Color key
-             name = 'FPKM',
+             name = ck,
              col = hcols,
-             
              
              heatmap_legend_param = list(title_position = "leftcenter",
                                          #legend_height = unit(30, "cm"),
