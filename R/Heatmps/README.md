@@ -1,9 +1,9 @@
 # Heatmap 
 
 ## input data
-csv file
-columns samples
-rows genes
+- csv file
+- columns = samples
+- rows = genes
 
 
 
