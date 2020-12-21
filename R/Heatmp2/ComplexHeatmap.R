@@ -1,4 +1,4 @@
-library('ComplexHeatmap')
+library(ComplexHeatmap)
 library(circlize)
 
 #setwd('')
@@ -46,6 +46,7 @@ hm = Heatmap(mat,
              
              # cancer seperator
              column_split = csep['label'],
+             #row_split = 
              
              # Cancer names
              column_names_gp = gpar(fontsize = 20, fontface = "bold"),
