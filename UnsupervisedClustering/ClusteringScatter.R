@@ -2,8 +2,8 @@ library(ggplot2)
 
 ### input file format
 # sample_id,component1,componenet2,class_name
-
-infile = 'Clustering_components.csv'
+setwd('/path/to/tsne/folde')
+infile = 'sample_data_TSNE.csv'
 outfile = 'Clustering.jpg'
 
 df = read.csv(infile)
@@ -29,6 +29,6 @@ p = p + theme(plot.background = element_rect(fill = "transparent"),
 
 
 
-jpeg("clust1.jpg", height = 2500, width = 2500, res = 300)
+jpeg(outfile, height = 2500, width = 2500, res = 300)
 print(p)
 dev.off()

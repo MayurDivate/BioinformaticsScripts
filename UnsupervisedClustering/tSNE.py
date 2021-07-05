@@ -1,3 +1,8 @@
+import pandas as pd 
+import os
+from sklearn.manifold import TSNE
+import time 
+
 def get_TSNE_components(inputfile, outputfile):
     print('T-SNE : unsupervised clustering')
     time_start = time.time()
@@ -20,6 +25,7 @@ def get_TSNE_components(inputfile, outputfile):
     print('----- ---- --- -- Done -- --- ---- -----')
 
 rdir = '/path/to/input/folder/',
-inx = os.path.join(rdir, 'input.csv')
+rdir = "/Users/mayurdivate/QUT/GitHub/BioinformaticsScripts/UnsupervisedClustering"
+inx = os.path.join(rdir, 'sample_data.csv')
 outx = inx.replace('.csv', '_TSNE.csv')
 get_TSNE_components(inx, outx)
