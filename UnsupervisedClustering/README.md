@@ -3,4 +3,4 @@
 
 ### Step 2: Run ClusteringScatter.R 
 
-![](Clustering.jpg | width=150)
+<img src="Clustering.jpg" width="150")
