@@ -2,7 +2,7 @@ library(ggplot2)
 
 ### input file format
 # sample_id,component1,componenet2,class_name
-setwd('/path/to/tsne/folde')
+#setwd('/path/to/tsne/folder')
 infile = 'sample_data_TSNE.csv'
 outfile = 'Clustering.jpg'
 
